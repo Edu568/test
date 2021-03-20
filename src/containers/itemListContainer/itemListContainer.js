@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 
 const ItemListContainer = (props) => {
     const [cart, setCart]= useState ([]);
+
+    useEffect (() => {
+        console.log("se monta el componente")
+        
+        return () => {
+            console.log("se murio")
+        }
+
+    }, [])
+
+    console.log("se esta por renderizar");
+    
 
     return (
         <>

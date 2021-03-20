@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from './CartWidget';
 import { navbar, logo, options } from "./Navbar.module.scss";
 
 
@@ -15,7 +16,7 @@ const Navbar = () => {
                     <li><a href="/#">Ingresa</a></li>
                     <li><a href="/#">Registrate</a></li>
                     <li>
-                        
+                        <CartWidget />
                     </li>
                 </ul>
             </nav>
