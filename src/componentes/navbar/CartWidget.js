@@ -1,7 +1,8 @@
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 
 const CartWidget = () => {
-  return <ShoppingCartIcon />;
+  return <ShoppingCartSharpIcon />;
 };
 
 export default CartWidget;
+
