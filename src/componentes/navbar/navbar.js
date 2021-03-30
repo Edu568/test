@@ -11,10 +11,14 @@ const Navbar = () => {
             <div className={logo}>To Get</div>
             <nav>
                 <ul className={options}>
-                    <li><a href="/#">Inicio</a></li>
-                    <li><a href="/#">Equipos</a></li>
-                    <li><a href="/#">Ingresa</a></li>
-                    <li><a href="/#">Registrate</a></li>
+                    <li className="nav-item">
+                        <a href="/#">Inicio</a></li>
+                    <li className="nav-item">
+                        <a href="/#">Equipos</a></li>
+                    <li className="nav-item">
+                        <a href="/#">Ingresa</a></li>
+                    <li className="nav-item">
+                        <a href="/#">Registrate</a></li>
                     <li>
                         <CartWidget />
                     </li>

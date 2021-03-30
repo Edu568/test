@@ -1,4 +1,4 @@
-const itemDetailContainer = () => {
+const itemDetailContainer = () => { 
     return (
         <div>
             

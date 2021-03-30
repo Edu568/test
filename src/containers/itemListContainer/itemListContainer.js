@@ -1,74 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import ItemList from '../../itemList/itemList';
-import ProductList from "../../mocks/productList";
-import { itemCount } from '../../itemCount/itemCount';
+import React, {useState, useContext } from 'react';
+import itemCount from '../../ItemCount/itemCount';
+import { globalContext } from '../Context/globalContext';
 
+const itemListContainer = (props) => {
+    const [contador, setContador] = useState(12)
+    const [stock, setstock] = useState(12)
+    const [productos, setproductos] = useState([])
 
+    const {cart, setCart} = useContext(globalContext);
 
-const ItemListContainer = ({greeting}) => {
-    const  [products, setproducts] = useState([]);
-    const [isLoading, setisLoading] = useState(false);
-    const [contador, setcontador] = useState(10)
-    const [stock, setstock] = useState(10)
-    
-    useEffect(() => {
-        setisLoading(true)
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => resolve(ProductList), 1000);
-        });
-        myPromise.then((result) => {
-        setproducts(result);
-        setisLoading(false);
-        });
-    },[]);
-    
-   const onAdd = (stock) => {
-       setcontador(contador +1)
-   };
-
-   const onSubstract = () => {
-       if(contador > 1) {
-           setcontador(contador -1);
-       } else {console.log("No hay stock")}
-   }
-   return (
-       <>
-            {array.map((element, index) => {
-                return (<div>
-                    <h2>{element}</h2>
-                </div>)
-            })}
-            <ItemCount stock={stock} cambiarStock={setStock} contador={contador}
-                onSubstract={onSubstract} onAdd={onAdd} />
-            <Link to={`/contacto`}>
-                <b>Ir a la pagina de contacto</b>
-            </Link>
-            <button onClick={() => {
-                localStorage.setItem("carrito", JSON.stringify([...cart, [{ items: { [] }, quantity: 2 }]]));
-            }}>agregar un producto</button>
-        </>
-   )
-
-    if (isLoading){
-        return <h1>Cargando Productos...</h1>
+    const onAdd = (stock) => {
+        setContador(contador + 1)
     }
 
-        
-        
+    const onSubstract = () => {
+        if (contadror > 1) {
+            setContador(contador - 1)
+        }else {
+            console.log("NO HAY STOCK")
+        }
+    }
     return (
-        <div>
-            <h2>{greeting}</h2>
-            <ItemList products={products} />
-        </div>
-    );
+        <>
+            <div>
+                <itemCount cart={Cart} stock={setstock} cambiarStock={stock} contador={Contador} onSubstract={onSubstract} onAdd={onAdd} />
 
+                <Link to={`/productos`}>
+                    <b>Ir a productos</b>
+                </Link>
+                <button onClick={() => {
+                    lolalStorage.setItem("carrito", JSON.stringify([...cart, [{ items: { id:1, name:"samsung"}, quantity:2}]]));
+                }}>Agregar producto</button>
+                
+            </div>
+        </>
+    )
+}
 
-
-    
-
-    
-
-};
-
-export default ItemListContainer;
-    
+export default itemListContainer;

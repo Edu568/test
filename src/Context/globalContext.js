@@ -1,4 +1,4 @@
-const itemDetail = () => {
+const globalContext = () => {
     return (
         <div>
             
@@ -6,13 +6,7 @@ const itemDetail = () => {
     )
 }
 
-export default itemDetail;
+export default globalContext;
 
 
-
-
-
-
-
-
-
+    
