@@ -1,9 +1,9 @@
-import { Switch } from "@material-ui/core";
-import { Router } from "@material-ui/icons";
-import "./App.scss";
+import "./App.css";
 import Navbar from "./componentes/navbar/navbar";
-import ItemListContainer from "./containers/itemListContainer/itemListContainer";
-import ItemList from "./itemList/itemList";
+import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+
+
 
 
 
@@ -11,21 +11,18 @@ import ItemList from "./itemList/itemList";
 
 const App = () => {
     return(
-    <>
-
-        <Navbar/>
-        <div>
-            <ItemListContainer  greeting ="Listado De Productos"/>
-            <ItemList />
-        </div>
-        <Switch>
-            <Route exatc path='/'>
-                <inicio />
-            </Route>
-            <Route exact  path='/productos'>
-                <ItemListContainer />
-            </Route>
-        </Switch>
+        <BrowserRouter>
+            <Navbar/>
+            <Switch>
+                <Route exact path="/">
+                </Route>
+                <Route>
+                    <ItemListContainer greeting="Listado de productos" />
+                </Route>
+            </Switch>
+                
+            
+        
 
         
         
@@ -34,7 +31,7 @@ const App = () => {
 
 
 
-    </>
+        </BrowserRouter>
     )
 }
 

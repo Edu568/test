@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
 import { navbar, logo, options } from "./Navbar.module.scss";
+import { Link } from "react-router-dom";
 
 
 
@@ -8,17 +9,21 @@ import { navbar, logo, options } from "./Navbar.module.scss";
 const Navbar = () => {
     return (
         <nav className={navbar}>
-            <div className={logo}>To Get</div>
+            <Link to={`/`} className={logo}><h2>To Get</h2></Link>
             <nav>
                 <ul className={options}>
                     <li className="nav-item">
-                        <a href="/#">Inicio</a></li>
+                        <Link to={`/`}>Inicio</Link>
+                    </li>
                     <li className="nav-item">
-                        <a href="/#">Equipos</a></li>
+                        <Link to={`/equipos`}>Equipos</Link>
+                    </li>
                     <li className="nav-item">
-                        <a href="/#">Ingresa</a></li>
+                    <Link to={`/ingresa`}>Ingresa</Link>
+                    </li>
                     <li className="nav-item">
-                        <a href="/#">Registrate</a></li>
+                        <Link to={`/registrate`}>Registrate</Link>
+                    </li>    
                     <li>
                         <CartWidget />
                     </li>

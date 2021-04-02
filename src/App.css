@@ -1,0 +1,13 @@
+section#home {
+    height: 95vh;
+  background-color: #58c14a;
+  background-image: url(../src/mocks/images/img\ 11.jpg);
+  background-size: cover;
+  background-position-y: -7rem;
+  filter: hue-rotate(330deg);
+}
+
+section#Productos{
+    padding: 0px;
+    margin: 0px;
+}
