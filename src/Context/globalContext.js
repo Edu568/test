@@ -1,12 +1,9 @@
-const globalContext = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
 
-export default globalContext;
+import { createContext } from "react";
 
+export const GlobalContext = createContext();
+
+
+   
 
     

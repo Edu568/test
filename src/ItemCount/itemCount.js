@@ -1,4 +1,4 @@
-const ItemCount = ({stock, onAdd,onBuy contador, onSubstract,compra}) => {
+const ItemCount = ({stock, onAdd,onBuy, contador, onSubstract,compra}) => {
 
     return (
     <>

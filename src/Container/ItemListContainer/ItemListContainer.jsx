@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useState, useEffect} from "react";
+import { GlobalContext } from "../../Context/GlobalContext";
 import ItemList from "../../ItemList/ItemList";
 import productList from "../../mocks/productList";
 
@@ -23,9 +24,16 @@ const ItemListContainer = ({ greeting }) => {
     }
     return (
         <div>
-            <h2>{greeting}</h2>
-            <ItemList products={products} />
+            <section className="greeting">
+                <h2>
+                    {greeting}
+                </h2>
+            </section>
+            <div className="container">
+                <ItemList products={products} />
+            </div>
         </div>
+        
         
     )
 }

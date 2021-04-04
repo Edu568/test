@@ -2,6 +2,12 @@ import "./App.css";
 import Navbar from "./componentes/navbar/navbar";
 import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Home from "./Container/Home/Index";
+import { GlobalContext } from './Context/GlobalContext';
+import { CartProvider } from "./Context/CartContext";
+import ItemDetailContainer from "./itemDetail";
+import Cart from "./Cart/Cart";
+import CheckeOut from "./componentes/Checkout";
 
 
 
@@ -11,13 +17,26 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
     return(
+        
+        <GlobalContext.Provider>
         <BrowserRouter>
+        <CartProvider>
             <Navbar/>
             <Switch>
                 <Route exact path="/">
+                    <Home />
                 </Route>
                 <Route>
                     <ItemListContainer greeting="Listado de productos" />
+                </Route>
+                <Route exact path = '/Descripcion'>
+                    <ItemDetailContainer />
+                </Route>
+                <Route exact path ="/Carrito">
+                    <Cart />
+                </Route>
+                <Route exact path = "/checkout">
+                    <CheckeOut />   
                 </Route>
             </Switch>
                 
@@ -30,8 +49,11 @@ const App = () => {
         
 
 
-
+        </CartProvider>
         </BrowserRouter>
+        </GlobalContext.Provider>
+        
+        
     )
 }
 

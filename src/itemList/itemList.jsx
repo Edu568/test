@@ -1,9 +1,10 @@
 import Item from "../Item/Item"
+import { Link } from "react-router-dom";
 
-const itemList = ({ products }) => {
+const ItemList = ({ products }) => {
     return (
         <div>
-            <ul>
+            <ul className="producto">
                 {products.map((product) => {
                     return <Item key={product.id} product={product}/>
                 })}
@@ -12,4 +13,4 @@ const itemList = ({ products }) => {
     )
 }
 
-export default itemList
+export default ItemList;
