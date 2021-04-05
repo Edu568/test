@@ -1,23 +1,23 @@
 import { CartContext } from "../Context/CartContext"
-import {useState, useContext} from "react";
+import {useState, useeffect, useContext} from "react";
+import CartList from "../CartList";
 
 const ProductosCarrito = ({cartProd}) => {
-    const {eliminarProducto, pTotal, product, qCart} = useContext(CartContext)
-    return (
-        <div className="d-flex flex-row cardCart justify-content-between">
-            <div className="d-flex flex-column">
-                <h3>{cartProd.name}</h3>
-                <div className="d-flex flex-row">
-                    <h4>Cantidad {cartProd.cantidad}</h4>
-                    <h4>Precio:{cartProd.price}</h4>
-                </div>
-                <h4 className="delete-item" onClick={() => eliminarProducto(cartProd)}>Eliminar producto</h4>
+    const { pTotal, product, qCart} = useContext(CartContext)
+    const [cartProds, setCartProds] = useState([])
+    useeffect(() => {
+        const myPromise = new Promise ((resolve,reject) => {
+            setTimeout(() =>
+                resolve(product),300);
+            
+        });
 
-            </div>
-            <div className="d-flex flex-column">
-                <h4>Subtotal</h4>
-                <h3 className="totalProd d-flex align-self-center">${cartProd.price*cartProd.cantidad}</h3>
-            </div>   
+        myPromise.then((result) => setCartProds(result));
+
+    }, []);
+    return (
+        <div className="productContainerCart">
+            <CartList cartProds={cartProds}/>
             
         </div>
     )

@@ -3,10 +3,11 @@ import {useState, useContext} from "react";
 import ItemCount from "../ItemCount/itemCount";
 import {Link} from "react-router-dom";
 import {  CartContext } from "../Context/CartContext/index";
+import productList from "../mocks/productList";
 
 
 
-const ItemDetailContainer = ({item}) => {
+const ItemDetail = ({item}) => {
     const [contador, setContador] = useState(1)
     const [stock, setStock] = useState(1)
     const [compra, setCompra] = useState("Comprar")
@@ -33,7 +34,7 @@ const ItemDetailContainer = ({item}) => {
         setQuantity(contador);
         setStock(stock - contador);
         setContador(1);
-        if(stock == contador){
+        if(stock === contador){
             setCompra("No hay stock")
         }
 
@@ -62,7 +63,7 @@ const ItemDetailContainer = ({item}) => {
     )
 }
 
-export default ItemDetailContainer;
+export default ItemDetail;
 
 
 

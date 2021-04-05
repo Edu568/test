@@ -33,21 +33,14 @@ const App = () => {
                 <Route exact path='/productos'>
                     <ItemListContainer greeting="Listado de productos" />
                 </Route>
-
-                <Route exact path='/productos/'>
-                    <ItemList />
-                </Route>
-                <Route>
-                    <Item />
-                </Route>
-                <Route exact path = '/Descripcion'>
+                <Route exact path='/productos/:id'>
                     <ItemDetailContainer />
                 </Route>
-                <Route exact path ="/Carrito">
+                <Route exact path = "/cart">
                     <Cart />
                 </Route>
-                <Route exact path = "/checkout">
-                    <CheckeOut />   
+                <Route exact path="/checkout">
+                    <CheckeOut />
                 </Route>
             </Switch>
                 

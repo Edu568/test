@@ -8,10 +8,7 @@ import ProductosCarrito from '../Cart/ProductosCarrito';
 const Cart = (CProduct) => {
     const {pTotal,Product,qCart}= useContext(CartContext)
     const [loading, setLoading] = useState(true)
-    const [nombre, setNombre] = useState([])
-    const [apellido, setApellido] = useState([])
-    const [email, setEmail] = useState([])
-    const [telefono, setTelefono] = useState([])
+    
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,9 +21,9 @@ const Cart = (CProduct) => {
         if (qCart () >= 1){
             return <>
             <div>
-                <h2>Su Compra</h2>
+                <h2 className="carrito">Su Compra</h2>
                 <ProductosCarrito />
-                <h3>Precio Total: ${pTotal()}</h3>
+                <h3 className="carrito">Precio Total: ${pTotal()}</h3>
                 <Link to={`/checkout`}><button className="cart">Confirmar Compra</button></Link>
             </div>
 

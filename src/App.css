@@ -21,7 +21,7 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+.prodContainer {
     width: 100vw;
 }
 
@@ -64,4 +64,29 @@ button.open{
   width: 7rem;
   margin-bottom: 1rem;
 }
+
+img.cargando {
+    filter: hue-rotate(21deg)
+}
     
+button.confirmar {
+    width: 15rem;
+    margin: 0rem;
+}
+
+.titleCart{
+    font-size: 1.2rem;
+}
+.dato-compra{
+    margin-right: 3rem;
+}
+.eliminarProducto{
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+}
+
+.productoTotal{
+    font-size: 2rem;
+}
