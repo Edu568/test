@@ -1,12 +1,23 @@
 import * as React from "react";
 import {useState, useEffect} from "react";
-import { GlobalContext } from "../../Context/GlobalContext";
 import ItemList from "../../ItemList/ItemList";
 import productList from "../../mocks/productList";
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);   
     const [isLoading, setisLoading] = useState(false);  
+
+    useEffect(() => {
+            const baseDeDatos = getFirestore();
+            const ItemCollection = baseDeDatos.collection('Items');
+            ItemCollection.get().then((value) => {
+                let aux = value.docs.map(element => {
+                    return {...element.data(), id:element.id}
+                })
+                console.log(aux)
+                setProducts(aux)
+            })
+    })
 
     useEffect(() => {
         setisLoading(true)

@@ -8,6 +8,10 @@ import { CartProvider } from "./Context/CartContext";
 import ItemDetailContainer from "./itemDetail";
 import Cart from "./Cart/Cart";
 import CheckeOut from "./componentes/Checkout";
+import ItemList from "./ItemList/ItemList";
+import Item from "./Item/Item";
+
+
 
 
 
@@ -26,8 +30,15 @@ const App = () => {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route>
+                <Route exact path='/productos'>
                     <ItemListContainer greeting="Listado de productos" />
+                </Route>
+
+                <Route exact path='/productos/'>
+                    <ItemList />
+                </Route>
+                <Route>
+                    <Item />
                 </Route>
                 <Route exact path = '/Descripcion'>
                     <ItemDetailContainer />

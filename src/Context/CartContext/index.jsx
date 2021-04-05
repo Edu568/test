@@ -11,8 +11,7 @@ export const CartProvider = ({ children }) => {
     const addCart = (item) => {
         debugger
         const isInCart = (id) => {
-            return 
-            product.findIndex((prod) => prod.item.id === id)
+            return product.findIndex((prod) => prod.item.id === id);
         };
         let estaEnCarrito = isInCart(item.item.id);
         if (estaEnCarrito === -1){
@@ -25,7 +24,7 @@ export const CartProvider = ({ children }) => {
     };
     const qCart = () => {
         const qtyPerProduct = product.map(p => p.cantidad);
-        return qtyPerProduct.reduce((acc, qty) => acc+= qty, 0);
+        return qtyPerProduct.reduce((acc, qty) => acc += qty, 0);
     }
     const pTotal = () => {
         const mapPrice = product.map(p => (p.price *p.cantidad));

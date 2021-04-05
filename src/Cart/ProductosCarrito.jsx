@@ -11,7 +11,7 @@ const ProductosCarrito = ({cartProd}) => {
                     <h4>Cantidad {cartProd.cantidad}</h4>
                     <h4>Precio:{cartProd.price}</h4>
                 </div>
-                <h4 className="delete-item" onClick={() => deleteProd(cartProd)}>Eliminar producto</h4>
+                <h4 className="delete-item" onClick={() => eliminarProducto(cartProd)}>Eliminar producto</h4>
 
             </div>
             <div className="d-flex flex-column">

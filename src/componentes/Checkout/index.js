@@ -1,7 +1,9 @@
 import { CartContext } from "../../Context/CartContext";
+import { useState } from 'react';
+import { useContext } from 'react';
 
 const CheckeOut = (Cproduct) => {
-    const {pTotal, product, qcart, eliminarProducto} = useContext(CartContext)
+    const {pTotal, product, qcart, clearCart} = useContext(CartContext)
     const [loading, setLoading] = useState(true);
     const [nombre, setNombre] = useState([])
     const [email, setEmail] = useState([]);
@@ -10,17 +12,7 @@ const CheckeOut = (Cproduct) => {
     const [telefono, setTelefono] = useState([]);
     const [order, setOrder] = useState([]);
     const finalizarCompra = () => {
-        if (email == conEmail){
-            let newOrder = {comprador: {name: nombre, email: email, telefono: telefono}, items: [...product], total: [pTotal()]};
-        
-            document.getElementById("orderConfirm").style.visibility = "visible";
-            document.getElementById("dataCustomer").style.visibility = "hidden";
-            document.getElementById("errormail").style.visibility = "hidden";
-            eliminarProducto();
-        }
-        else {
-            document.getElementById("errormail").style.visibility = "visible";
-        }
+       
     }
     return (
         <div>
@@ -40,7 +32,7 @@ const CheckeOut = (Cproduct) => {
          </div>
          <div id="orderConfirm">
             <h2 >¡Muchas Gracias por su compra, {nombre}!</h2>
-            <h3>Estará recibiendo un email de confirmación en {correo} a la brevedas</h3>
+            <h3>Estará recibiendo un email de confirmación en {email} a la brevedas</h3>
             <h4>Su número de orden es: {order}</h4>
 
 
