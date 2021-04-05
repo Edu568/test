@@ -6,7 +6,7 @@ import cargando from '../mocks/images/cargando.gif';
 import ProductosCarrito from '../Cart/ProductosCarrito';
 
 const Cart = (CProduct) => {
-    const {pTotal,Product,qCart}= useContext(CartContext)
+    const {pTotal,qCart}= useContext(CartContext)
     const [loading, setLoading] = useState(true)
     
 

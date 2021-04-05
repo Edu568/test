@@ -1,9 +1,9 @@
-import { CartContext } from "../../Context/CartContext";
+import { CartContext } from "../Context/CartContext";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { getFirestore } from "../Firebase";
 
-const CheckeOut = (Cproduct) => {
+const CheckOut = (Cproduct) => {
     const {pTotal, product, qcart, eliminarProducto} = useContext(CartContext)
     const [loading, setLoading] = useState(true);
     const [nombre, setNombre] = useState([])
@@ -16,7 +16,13 @@ const CheckeOut = (Cproduct) => {
         if(email === conEmail) {
             let newOrder = {comprador: {name: nombre, email: email, telefono: telefono}, items: [...product], total: [pTotal()]};
             const baseDeDatos = getFirestore();
-            const ordenesCollection = baseDeDatos.collection("ordenes")
+            const ordenesCollection = baseDeDatos.collection("ordenes");
+            ordenesCollection.add(newOrder).then((value) => {
+                setOrder(value.id);
+            })
+            document.getElementById("orderConfirm").style.visibility ="visible"
+            document.getElementById("dataCustomer").style.visibility ="hidden"
+            document.getElementById("erroremail").style.visibility ="hidden"
         }
        
     }
@@ -48,4 +54,4 @@ const CheckeOut = (Cproduct) => {
     )
 }
 
-export default CheckeOut;
+export default CheckOut;
