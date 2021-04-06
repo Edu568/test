@@ -3,7 +3,7 @@ import Navbar from "./componentes/navbar/navbar";
 import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Home from "./Container/Home/Index";
-import { GlobalContext } from './Context/GlobalContext';
+import { GlobalContext } from "./Context/GlobalContext";
 import { CartProvider } from "./Context/CartContext";
 import ItemDetailContainer from "./itemDetail";
 import Cart from "./Cart/Cart";

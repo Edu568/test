@@ -1,13 +1,15 @@
 import * as React from "react";
 import {useState, useContext} from "react";
 import ItemCount from "../ItemCount/itemCount";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {  CartContext } from "../Context/CartContext/index";
 
 
 
 
 const ItemDetail = ({items}) => {
+
+    const {id} = useParams();
     debugger
     const [contador, setContador] = useState(12)
     const [stock, setStock] = useState(10)
