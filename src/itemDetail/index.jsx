@@ -3,17 +3,19 @@ import {useState, useContext} from "react";
 import ItemCount from "../ItemCount/itemCount";
 import {Link} from "react-router-dom";
 import {  CartContext } from "../Context/CartContext/index";
-import productList from "../mocks/productList";
+
 
 
 
 const ItemDetail = ({items}) => {
-    const [contador, setContador] = useState(1)
-    const [stock, setStock] = useState(1)
+    debugger
+    const [contador, setContador] = useState(12)
+    const [stock, setStock] = useState(10)
     const [compra, setCompra] = useState("Comprar")
     const [quantity, setQuantity] = useState(0)
 
-    const { addCart , product} = useContext(CartContext)
+    const { addCart , product} = useContext(CartContext);
+    
     
     const Load = () => {
         setStock(items.stock)
@@ -29,8 +31,8 @@ const ItemDetail = ({items}) => {
         }
     }
     const onBuy = () => {
-        debugger
-        setStock(items.stock);
+        
+        setStock(items.Stock);  
         setQuantity(contador);
         setStock(stock - contador);
         setContador(1);
@@ -38,27 +40,27 @@ const ItemDetail = ({items}) => {
             setCompra("No hay stock")
         }
 
-        addCart ({item: items, cantidad: contador, price: items.price, name: items.name, id: items.id});
+        addCart ({product: items, cantidad: contador, price: items.price, Title: items.Title, id: items.id});
         document.getElementById('Finalizar Compra').style.visibility = "visible";
     }
     console.log([product])
 
     return (
-        <div key={items.id} product={items} onLoad={Load} className="d-flex flex-column justify-content-around itemDetail">
-            <h2>{items.name}</h2>
+        <div key={product.id} product={items} onLoad={Load} className="d-flex flex-column justify-content-around itemDetail">
+            <h2>{product.Title}</h2>
             <div className="d-flex flex-row justify-content-between">
-                <img src={items.image}></img>
+                <img src={product.Image}></img>
                 <div className="d-flex flex-column justify-content-between">
 
-                    <p> Precio:${items.price}</p>
+                    <p> Precio:${product.Price}</p>
                     <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract} onBuy={onBuy} compra={compra} stock={stock}/>
                     <div id="Terminar Compra" className="d-flex flex-column justify-items-center confirmaCompra">
-                        <p>Se agrego {quantity} {items.name}al carrito</p>
+                        <p>Se agrego {quantity} {product.Title}al carrito</p>
                         <Link to={`/cart`} quantity={quantity}><button>Finalizar Compra</button></Link>
                     </div>
                 </div>
             </div>
-            <p>Descripcion: {items.descripcion}</p>
+            <p>Descripcion: {product.Description}</p>
         </div>
     )
 }

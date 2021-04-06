@@ -1,9 +1,10 @@
+import * as React from "react";
 import { CartContext } from "../Context/CartContext"
 import {useState, useeffect, useContext} from "react";
 import CartList from "../CartList";
 
 const ProductosCarrito = ({cartProd}) => {
-    const { pTotal, product, qCart} = useContext(CartContext)
+    const { product } = useContext(CartContext)
     const [cartProds, setCartProds] = useState([])
     useeffect(() => {
         const myPromise = new Promise ((resolve,reject) => {
@@ -23,4 +24,4 @@ const ProductosCarrito = ({cartProd}) => {
     )
 }
 
-export default ProductosCarrito
+export default ProductosCarrito;

@@ -2,7 +2,7 @@ import { CartContext } from "../Context/CartContext"
 import { useContext } from 'react';
 
 const CartItem = ({cartProd}) => {
-    const {eliminarProducto, ptotal, product, qCart } = useContext(CartContext)
+    const {eliminarProducto} = useContext(CartContext)
     return (
         <div className="d-flex flex-row cardCart justify-content-between">
             <div className="d-flex flex-column">"

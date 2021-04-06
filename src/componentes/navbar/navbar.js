@@ -18,12 +18,6 @@ const Navbar = () => {
                     <li className="nav-item">
                         <Link to={`/equipos`}>Equipos</Link>
                     </li>
-                    <li className="nav-item">
-                    <Link to={`/ingresa`}>Ingresa</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to={`/registrate`}>Registrate</Link>
-                    </li>    
                     <li>
                         <CartWidget />
                     </li>

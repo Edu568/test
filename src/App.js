@@ -30,6 +30,9 @@ const App = () => {
                 <Route exact path="/">
                     <Home />
                 </Route>
+                <Route exact path="/equipos" >
+                    <ItemListContainer />
+                </Route>
                 <Route exact path='/productos'>
                     <ItemListContainer greeting="Listado de productos" />
                 </Route>

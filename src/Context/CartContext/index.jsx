@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import productList from "../../mocks/productList";
 export const CartContext = createContext();
 
 
@@ -13,7 +12,7 @@ export const CartProvider = ({ children }) => {
         const isInCart = (id) => {
             return product.findIndex((prod) => prod.item.id === id);
         };
-        let estaEnCarrito = isInCart(item.item.id);
+        let estaEnCarrito = isInCart(item.product.id);
         if (estaEnCarrito === -1){
             setProduct([...product, item]);
         }else  {
