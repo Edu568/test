@@ -1,27 +1,47 @@
 import * as React from "react";
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import ItemCount from "../ItemCount/itemCount";
 import {Link, useParams} from "react-router-dom";
 import {  CartContext } from "../Context/CartContext/index";
+import { getFirestore } from "../Firebase";
 
 
 
 
 const ItemDetail = ({items}) => {
+    
 
     const {id} = useParams();
-    debugger
-    const [contador, setContador] = useState(12)
-    const [stock, setStock] = useState(10)
+    const [item, setItems] = useState()
+    
+    useEffect(() => {
+        
+        const baseDeDatos = getFirestore();
+        const itemsCollection = baseDeDatos.collection("Items");
+        const itemsDoc = itemsCollection.doc(id)
+
+        itemsDoc.get().then((doc) => {
+
+            if(!doc.exists){
+                console.log("No hay item")
+                return;
+            }
+            setItems({id: doc.id, ...doc.data()});
+            console.log("los items son"+items)
+        }).catch((error) => {
+            console.log('Error en Items' + error)
+        })
+        
+    }, [id]);
+
+    const [contador, setContador] = useState(1)
+    const [stock, setStock] = useState(items.Stock)
     const [compra, setCompra] = useState("Comprar")
     const [quantity, setQuantity] = useState(0)
 
     const { addCart , product} = useContext(CartContext);
     
     
-    const Load = () => {
-        setStock(items.stock)
-    }
     const onAdd = () => {
         if(contador < stock) {
             setContador(contador + 1)
@@ -43,27 +63,29 @@ const ItemDetail = ({items}) => {
         }
 
         addCart ({product: items, cantidad: contador, price: items.price, Title: items.Title, id: items.id});
-        document.getElementById('Finalizar Compra').style.visibility = "visible";
+        //document.getElementById('Finalizar Compra').style.visibility = "visible";
     }
     console.log([product])
 
     return (
-        <div key={product.id} product={items} onLoad={Load} className="d-flex flex-column justify-content-around itemDetail">
-            <h2>{product.Title}</h2>
-            <div className="d-flex flex-row justify-content-between">
-                <img src={product.Image}></img>
-                <div className="d-flex flex-column justify-content-between">
+        <>
+            <div key={items.id} product={items}  className="d-flex flex-column justify-content-around itemDetail">
+                <h2>{items.Title}</h2>
+                <div className="d-flex flex-row justify-content-between">
+                    <img src={items.Image} alt="imagen"></img>
+                    <div className="d-flex flex-column justify-content-between">
 
-                    <p> Precio:${product.Price}</p>
-                    <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract} onBuy={onBuy} compra={compra} stock={stock}/>
-                    <div id="Terminar Compra" className="d-flex flex-column justify-items-center confirmaCompra">
-                        <p>Se agrego {quantity} {product.Title}al carrito</p>
-                        <Link to={`/cart`} quantity={quantity}><button>Finalizar Compra</button></Link>
+                        <p> Precio:${items.Price}</p>
+                        <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract} onBuy={onBuy} compra={compra} stock={stock}/>
+                        <div id="Terminar Compra" className="d-flex flex-column justify-items-center confirmaCompra">
+                            <p>Se agrego {quantity} {items.Title}al carrito</p>
+                            <Link to={`/cart`} quantity={quantity}><button>Finalizar Compra</button></Link>
+                        </div>
                     </div>
                 </div>
+                <p>Descripcion: {product.Description}</p>
             </div>
-            <p>Descripcion: {product.Description}</p>
-        </div>
+        </>
     )
 }
 

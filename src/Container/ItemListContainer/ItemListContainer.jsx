@@ -23,20 +23,20 @@ const ItemListContainer =   ({ greeting }) => {
         })
     }, []);
 
-   // useEffect(() => {
-     //   setisLoading(true)
-       //  const myPromise = new Promise((resolve, reject) => {
-         //    setTimeout(() => resolve(productList), 3000)
-        // })
-        // myPromise.then((result) => {
-        // setProducts(result)
-        // setisLoading(false);
-       //  });
-     //}, []);
+    // useEffect(() => {
+    //     setisLoading(true)
+    //      const myPromise = new Promise((resolve, reject) => {
+    //        setTimeout(() => resolve(productList), 3000)
+    //      })
+    //      myPromise.then((result) => {
+    //      setProducts(result)
+    //      setisLoading(false);
+    //     });
+    // }, []);
  
-    // if(isLoading){
-      //   return <h1>Cargando Productos</h1>
-     //}
+    //  if(isLoading){
+    //     return <h1>Cargando Productos</h1>
+    //  }
 
 
 

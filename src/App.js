@@ -5,14 +5,14 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Home from "./Container/Home/Index";
 import { GlobalContext } from "./Context/GlobalContext";
 import { CartProvider } from "./Context/CartContext";
-import ItemDetailContainer from "./itemDetail";
+import ItemDetailContainer from "./Container/ItemDetailContainer";
 import Cart from "./Cart/Cart";
 import CheckOut from "./CheckOut";
 
 
 
 
-
+ 
 
 
 

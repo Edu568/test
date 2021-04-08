@@ -26,11 +26,11 @@ export const CartProvider = ({ children }) => {
         return qtyPerProduct.reduce((acc, qty) => acc += qty, 0);
     }
     const pTotal = () => {
-        const mapPrice = product.map(p => (p.price *p.cantidad));
+        const mapPrice = product.map(p => (p.product.Price *p.cantidad));
         return mapPrice.reduce((acc, prc) => acc += prc, 0)
     }
     const eliminarProducto = (prod) => {
-        const NewList = product.filter((item) => prod.item.id !== item.item.id)
+        const NewList = product.filter((item) => prod.id !== item.id)
         setProduct(NewList);
     };
     return (

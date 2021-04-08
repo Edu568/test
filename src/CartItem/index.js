@@ -6,7 +6,7 @@ const CartItem = ({cartProd}) => {
     return (
         <div className="d-flex flex-row cardCart justify-content-between">
             <div className="d-flex flex-column">"
-                <h3 className="titleCart">{cartProd.name}</h3>
+                <h3 className="titleCart">{cartProd.Title}</h3>
                 <div className="d-flex flex-row">
                     <h4 className="dato-compra">cantidad: {cartProd.cantidad}</h4>
                     <h4 className="dato-compra">precio: ${cartProd.price}</h4>
@@ -16,7 +16,7 @@ const CartItem = ({cartProd}) => {
             </div>
             <div className="d-flex flex-column">
                 <h2>Subtotal</h2>
-                <h3 className="productoTotal d-flex align-self-center">${cartProd.price*cartProd.cantidad}</h3>
+                <h3 className="productoTotal d-flex align-self-center">${cartProd.product.Price*cartProd.cantidad}</h3>
             </div>
             
         </div>

@@ -1,14 +1,14 @@
 import * as React from "react";
-import { useParams } from "react-router"
+import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react';
-import { getFirestore } from "../firebase";
+import { getFirestore } from "../Firebase";
 import ItemDetail from "../itemDetail";
 import loader from "../mocks/images/cargando.gif";
 
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState(null)
 
     
 
@@ -31,28 +31,29 @@ const ItemDetailContainer = () => {
         })
         
     }, [id]);
-    debugger
-    if (items.lenght==0){
-        debugger
-        return (
-            setTimeout(() => {
+    
+   return (
+       <>
+            {!items? (
+                setTimeout(() => {
+                    <>
+                        <h3>No se encontro producto</h3>
+                    </>
+                },200),
                 <>
-                    <h3>No se encontro el producto</h3>
+                    <img className="cargando" src={loader} alt="cargando" />
                 </>
-            }, 200),
-            <>
-            <img className="cargando" src={loader} alt="cargando" />
-            </>
-        );
-    } else {
-        debugger
-        return (
-            
-            <>
-            <ItemDetail items={items} />
-            </>
-        )
-    }
+            ): (
+                <>
+                    <ItemDetail items={items || {}} />
+                </>
+            )}
+        </>
+    )
+        
+        
+   
+    
     
 }
 

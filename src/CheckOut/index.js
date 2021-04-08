@@ -38,8 +38,8 @@ const CheckOut = (Cproduct) => {
                 <input type="email" placeholder="Correo Electrónico" required className='datoContacto' onBlur={(e) => {setEmail(e.target.value)}}/>
                 <input type="email" placeholder="Confirme su correo Electrónico" required className='datoContacto' onBlur={(e) => {setConEmail(e.target.value)}}/>
                 <p id="errormail">Los correos no coinciden</p>
-                </form>
                 <button onClick={() =>{finalizarCompra()}} >Terminar Pedido</button>
+            </form>
             </div>
          </div>
          <div id="orderConfirm">

@@ -15,9 +15,7 @@ const Cart = (CProduct) => {
             setLoading(false)
         }, 2000);
     }, []);
-
     const CartItems = () => {
-
         if (qCart () >= 1){
             return <>
             <div>

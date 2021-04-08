@@ -1,3 +1,5 @@
+
+
 const ItemCount = ({stock, onAdd,onBuy, contador, onSubstract,compra}) => {
 
     return (

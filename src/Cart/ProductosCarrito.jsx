@@ -1,12 +1,12 @@
 import * as React from "react";
 import { CartContext } from "../Context/CartContext"
-import {useState, useeffect, useContext} from "react";
+import {useState, useEffect, useContext} from "react";
 import CartList from "../CartList";
 
 const ProductosCarrito = ({cartProd}) => {
     const { product } = useContext(CartContext)
     const [cartProds, setCartProds] = useState([])
-    useeffect(() => {
+    useEffect(() => {
         const myPromise = new Promise ((resolve,reject) => {
             setTimeout(() =>
                 resolve(product),300);
