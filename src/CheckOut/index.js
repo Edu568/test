@@ -5,7 +5,6 @@ import { getFirestore } from "../Firebase";
 
 const CheckOut = (Cproduct) => {
     const {pTotal, product, qcart, eliminarProducto} = useContext(CartContext)
-    const [loading, setLoading] = useState(true);
     const [nombre, setNombre] = useState([])
     const [email, setEmail] = useState([]);
     const [apellido, setApellido] = useState([])
@@ -16,13 +15,13 @@ const CheckOut = (Cproduct) => {
         if(email === conEmail) {
             let newOrder = {comprador: {name: nombre, email: email, telefono: telefono}, items: [...product], total: [pTotal()]};
             const baseDeDatos = getFirestore();
-            const ordenesCollection = baseDeDatos.collection("ordenes");
-            ordenesCollection.add(newOrder).then((value) => {
+            const OrdenesCollection = baseDeDatos.collection("Ordenes");
+            OrdenesCollection.add(newOrder).then((value) => {
                 setOrder(value.id);
             })
             document.getElementById("orderConfirm").style.visibility ="visible"
             document.getElementById("dataCustomer").style.visibility ="hidden"
-            document.getElementById("erroremail").style.visibility ="hidden"
+            document.getElementById("errormail").style.visibility ="hidden"
         }
        
     }
@@ -38,12 +37,12 @@ const CheckOut = (Cproduct) => {
                 <input type="email" placeholder="Correo Electrónico" required className='datoContacto' onBlur={(e) => {setEmail(e.target.value)}}/>
                 <input type="email" placeholder="Confirme su correo Electrónico" required className='datoContacto' onBlur={(e) => {setConEmail(e.target.value)}}/>
                 <p id="errormail">Los correos no coinciden</p>
-                <button onClick={() =>{finalizarCompra()}} >Terminar Pedido</button>
             </form>
+                <button onClick={() =>{finalizarCompra()}} >Terminar Pedido</button>
             </div>
          </div>
          <div id="orderConfirm">
-            <h2 >¡Muchas Gracias por su compra, {nombre}!</h2>
+            <h2 >¡Muchas Gracias por su compra, {nombre} {apellido}!</h2>
             <h3>Estará recibiendo un email de confirmación en {email}</h3>
             <h4>Su número de orden es: {order}</h4>
 

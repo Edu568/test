@@ -19,10 +19,10 @@ const Cart = (CProduct) => {
         if (qCart () >= 1){
             return <>
             <div>
-                <h2 className="carrito">Su Compra</h2>
+                <h2 className="carrito"> Su Compra </h2>
                 <ProductosCarrito />
                 <h3 className="carrito">Precio Total: ${pTotal()}</h3>
-                <Link to={`/checkout`}><button className="cart">Confirmar Compra</button></Link>
+                <Link to={`/checkout`}><button className="compra">Confirmar Compra</button></Link>
             </div>
 
             </>

@@ -8,7 +8,6 @@ export const CartProvider = ({ children }) => {
         setProduct([])
     }
     const addCart = (item) => {
-        debugger
         const isInCart = (id) => {
             return product.findIndex((prod) => prod.item.id === id);
         };
@@ -17,7 +16,7 @@ export const CartProvider = ({ children }) => {
             setProduct([...product, item]);
         }else  {
             let NewItem = {...product[estaEnCarrito], cantidad: product[estaEnCarrito].cantidad + item.cantidad}
-            let NewList = product.filter(prod => item.item.id !== prod.item.id)
+            let NewList = product.filter(prod => item.id !== prod.item.id)
             setProduct([...NewList, NewItem])
         }
     };

@@ -36,7 +36,7 @@ const ItemDetail = ({items}) => {
 
     const [contador, setContador] = useState(1)
     const [stock, setStock] = useState(items.Stock)
-    const [compra, setCompra] = useState("Comprar")
+    const [compra, setCompra] = useState("Agregar al carrito")
     const [quantity, setQuantity] = useState(0)
 
     const { addCart , product} = useContext(CartContext);
@@ -62,7 +62,7 @@ const ItemDetail = ({items}) => {
             setCompra("No hay stock")
         }
 
-        addCart ({product: items, cantidad: contador, price: items.price, Title: items.Title, id: items.id});
+        addCart ({product: items, cantidad: contador, price: items.Price, Title: items.Title, id: items.Id});
         //document.getElementById('Finalizar Compra').style.visibility = "visible";
     }
     console.log([product])
@@ -71,14 +71,14 @@ const ItemDetail = ({items}) => {
         <>
             <div key={items.id} product={items}  className="d-flex flex-column justify-content-around itemDetail">
                 <h2>{items.Title}</h2>
-                <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-row justify-content-between boxItemDetail">
                     <img src={items.Image} alt="imagen"></img>
                     <div className="d-flex flex-column justify-content-between">
 
-                        <p> Precio:${items.Price}</p>
+                        <p className="precio"> Precio:${items.Price}</p>
                         <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract} onBuy={onBuy} compra={compra} stock={stock}/>
                         <div id="Terminar Compra" className="d-flex flex-column justify-items-center confirmaCompra">
-                            <p>Se agrego {quantity} {items.Title}al carrito</p>
+                            <p className="addToCart">Se agrego {quantity} {items.Title}al carrito</p>
                             <Link to={`/cart`} quantity={quantity}><button>Finalizar Compra</button></Link>
                         </div>
                     </div>

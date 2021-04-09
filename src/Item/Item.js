@@ -4,8 +4,8 @@ const Item = ({product}) => {
     return <>
         <div className={card}>
             <h3>{product.Title}</h3>
-            <p className={price}>${product.Price}</p>
-            <h1> stock {product.Stock}</h1>
+            <h2 className={price}>${product.Price}</h2>
+            <h1 className="Stock"> stock {product.Stock}</h1>
             
             <Link to={`/productos/${product.id}`}><button className={cardButton}>Comprar</button></Link>
         

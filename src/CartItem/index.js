@@ -5,13 +5,13 @@ const CartItem = ({cartProd}) => {
     const {eliminarProducto} = useContext(CartContext)
     return (
         <div className="d-flex flex-row cardCart justify-content-between">
-            <div className="d-flex flex-column">"
+            <div className="d-flex flex-column">
                 <h3 className="titleCart">{cartProd.Title}</h3>
                 <div className="d-flex flex-row">
                     <h4 className="dato-compra">cantidad: {cartProd.cantidad}</h4>
                     <h4 className="dato-compra">precio: ${cartProd.price}</h4>
                 </div>
-                <h4 className="eliminarProducto" onClick={() => eliminarProducto(cartProd)}>Eliminr Producto</h4>
+                <button className="eliminarProducto" onClick={() => eliminarProducto(cartProd)}>Eliminar Producto</button>
 
             </div>
             <div className="d-flex flex-column">
